@@ -13,6 +13,7 @@
     <script type="text/javascript">
     var bitcoinCalculator = angular.module('bitcoinCalculator', []);
     bitcoinCalculator.controller('bitcoinController', function($scope, $http){
+
       $.ajax({
         url: "https://bitpay.com/api/rates",
         type: "GET",
@@ -32,6 +33,8 @@
           $scope.initalAmt  = 5000;
           $scope.newAmt     = function(price){return price/$scope.currRate * $scope.initalAmt;}
           $scope.profit     = function(price){return price/$scope.currRate * $scope.initalAmt - $scope.initalAmt;}
+
+          $scope.$apply()
         },
       });
     });
@@ -51,7 +54,7 @@
               <label for="starting-investment">Initial Investment (USD)</label>
               <input type="number" class="form-control">
             </form>
-            <p>Current Price (USD): ${{currRate}}</p>
+            <p>Current Price (USD): <span class="number">{{currRate | currency }}</span></p>
           </div>
         </div>
 
