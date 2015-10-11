@@ -40,6 +40,8 @@
     </script>
     <style>
       .number {font-weight: bold;}
+      label, table {font-size: 15px;}
+      input {max-width: 200px;}
     </style>
   </head>
   <body>
@@ -51,7 +53,7 @@
             <br><br>
             <form role="form">
               <label for="starting-investment">Initial Investment (USD)</label>
-              <input type="number" class="form-control">
+              <input type="number" ng-model="initalAmt" class="form-control" placeholder="{{initalAmt}}">
             </form>
             <p>Current Price (USD): <span class="number">{{currRate | currency }}</span></p>
           </div>
@@ -71,32 +73,33 @@
               <tbody>
                 <tr>
                   <td>$1,000</td>
-                  <td>${{ newAmt(1000).toFixed(2) }}</td>
-                  <td>${{ profit(1000).toFixed(2) }}</td>
+                  <td>{{ newAmt(1000) | currency }}</td>
+                  <td>{{ profit(1000) | currency }}</td>
                 </tr>
                 <tr>
                   <td>$5,000</td>
-                  <td>${{ newAmt(5000).toFixed(2) }}</td>
-                  <td>${{ profit(5000).toFixed(2) }}</td>
+                  <td>{{ newAmt(5000) | currency }}</td>
+                  <td>{{ profit(5000) | currency }}</td>
                 </tr>
                 <tr>
                   <td>$10,000</td>
-                  <td>${{ newAmt(10000).toFixed(2) }}</td>
-                  <td>${{ profit(10000).toFixed(2) }}</td>
+                  <td>{{ newAmt(10000) | currency }}</td>
+                  <td>{{ profit(10000) | currency }}</td>
                 </tr>
                 <tr>
                   <td>$25,000</td>
-                  <td>${{ newAmt(25000).toFixed(2) }}</td>
-                  <td>${{ profit(25000).toFixed(2) }}</td>
+                  <td>{{ newAmt(25000) | currency }}</td>
+                  <td>{{ profit(25000) | currency }}</td>
                 </tr>
                 <tr>
                   <td>$50,000</td>
-                  <td>${{ newAmt(50000).toFixed(2) }}</td>
-                  <td>${{ profit(50000).toFixed(2) }}</td>
+                  <td>{{ newAmt(50000) | currency }}</td>
+                  <td>{{ profit(50000) | currency }}</td>
                 </tr>
               </tbody>
             </table>
           </div>
+          <span>* IF the price of 1 Bitcoin reaches X, THEN your starting investment becomes X AND your profit becomes X.</span>
           <div class="col-sm-5">
             <img src="img/btc.png" width="200">
           </div>
