@@ -15,7 +15,7 @@ bitcoinCalculator.controller('bitcoinController', function($scope, $http){
       $scope.newAmt     = function(price){return price/$scope.currRate * $scope.initalAmt;}
       $scope.profit     = function(price){return price/$scope.currRate * $scope.initalAmt - $scope.initalAmt;}
 
-      $scope.$apply()
+      $scope.$apply();
     },
   });
 
@@ -26,7 +26,7 @@ bitcoinCalculator.controller('bitcoinController', function($scope, $http){
   };
 
   $scope.bpiEndDate = new Date();
-  $scope.bpiStartDate = new Date()
+  $scope.bpiStartDate = new Date();
   $scope.bpiStartDate.setYear($scope.bpiEndDate.getFullYear() - 2);
 
 
@@ -44,13 +44,12 @@ bitcoinCalculator.controller('bitcoinController', function($scope, $http){
       var dataArray = $.map(data.bpi, function (value, index){
         return [[new Date(index).getTime(), value]];
       });
-      debugger
       $scope.bitcoinHistoricalData = [{
         "key": "Prices",
         "values": dataArray
       }];
 
-      $scope.$apply()
+      $scope.$apply();
     },
   });
 
