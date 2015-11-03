@@ -18,7 +18,9 @@ bitcoinCalculator.controller('bitcoinController', function($scope, $http){
       $scope.$apply();
     },
   });
+});
 
+bitcoinCalculator.controller('bitcoinGraphController', function($scope, $http){
   $scope.xAxisTickFormatFunction = function(){
     return function(date){
       return d3.time.format('%x')(new Date(date));
@@ -52,5 +54,4 @@ bitcoinCalculator.controller('bitcoinController', function($scope, $http){
       $scope.$apply();
     },
   });
-
 });

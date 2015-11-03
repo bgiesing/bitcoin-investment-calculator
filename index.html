@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="bitcoinCalculator" ng-controller="bitcoinController">
+<html ng-app="bitcoinCalculator">
   <head>
     <title>Bitcoin Investment Calculator</title>
     <meta charset="utf-8">
@@ -11,7 +11,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="jumbotron">
+      <div class="jumbotron" ng-controller="bitcoinController">
         <div class="row">
           <div class="col-sm-6 col-sm-offset-3">
             <h1>Bitcoin Investment<br>Calculator</h1>
@@ -83,7 +83,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row" ng-controller="bitcoinGraphController">
           <div class="col-sm-6 col-sm-offset-3">
             <nvd3-line-chart
               data="bitcoinHistoricalData"
